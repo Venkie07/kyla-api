@@ -3,10 +3,12 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from openai import OpenAI
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 # =========================
 # CONFIG
 # =========================
+HF_API_KEY = os.environ.get("HF_API_KEY")
 MODEL_NAME = "meta-llama/Llama-3.1-8B-Instruct:novita"
 MAX_MEMORY = 100  # keep last 10 messages
 
@@ -107,3 +109,4 @@ def reset_chat():
         }
     ]
     return {"status": "chat memory cleared"}
+

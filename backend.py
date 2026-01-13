@@ -110,3 +110,7 @@ def reset_chat():
     ]
     return {"status": "chat memory cleared"}
 
+@app.get("/")
+def root():
+    return {"status": "Kyla backend is running"}
+
